@@ -1,4 +1,4 @@
-package com.oops.polymorphysm;
+package com.oops.polymorphism;
 
 public class Shape {
 
