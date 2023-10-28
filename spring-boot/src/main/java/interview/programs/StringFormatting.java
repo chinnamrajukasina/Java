@@ -7,7 +7,7 @@ public class StringFormatting {
 String 	name = "Raju";
 String country = "India";
 String technology = "Java";
-System.out.println(String.format("Hi, My name is %s.\nI am from %s and I'm using Technology %s\n",name,country,technology ));
+System.out.println("Hi, My name is %s.\nI am from %s and I'm using Technology %s\n".formatted(name, country, technology));
 
 System.out.printf("Hi, My name is %s.\nI am from %s and I'm using Technology %s",name,country,technology);
 
