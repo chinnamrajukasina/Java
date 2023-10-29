@@ -9,7 +9,7 @@ public class Array extends Object {
 	public static void main(String[] args) {
 
 		Array array = new Array();
-		array.equals(null);
+		System.out.println(array.equals(null));
 
 	}
 
