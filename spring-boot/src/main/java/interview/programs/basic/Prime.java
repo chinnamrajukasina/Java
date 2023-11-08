@@ -1,3 +1,4 @@
+package interview.programs.basic;
 import prasad.exam.Utility;
 
 public class Prime {
