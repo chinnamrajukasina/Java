@@ -1,6 +1,6 @@
 package interview.programs;
 
-import prasad.exam.Utility;
+import utility.Utility;
 
 public class ArmstrongNumber {
 

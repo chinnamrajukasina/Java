@@ -1,5 +1,7 @@
 package prasad.exam;
 
+import utility.Utility;
+
 public class TernaryOperator {
 
 	public static void main(String[] args) {

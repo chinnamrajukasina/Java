@@ -1,5 +1,5 @@
 package interview.programs.basic;
-import prasad.exam.Utility;
+import utility.Utility;
 
 public class fibonacciTraining {
 
