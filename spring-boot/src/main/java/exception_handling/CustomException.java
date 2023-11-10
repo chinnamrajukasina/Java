@@ -8,7 +8,7 @@ public class CustomException {
             int age = 15;
             if (age < 18) {
                 System.out.printf("You have to wait for %d years\n", 18 - age);
-                throw new MyCustomException("Age is below 18. You cannot proceed.");
+                throw  new MyCustomException("Age is below 18. You cannot proceed.");
             }
 
             // Other code that follows if the condition is met
@@ -21,6 +21,7 @@ public class CustomException {
 }
 
 // Custom exception class that extends Exception
+@SuppressWarnings("serial")
 class MyCustomException extends Exception {
     public MyCustomException(String message) {
         super(message);
