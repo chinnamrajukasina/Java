@@ -11,7 +11,38 @@ public class IntegerOperations {
 		findEvenNumberElements(myList);
 		findTheFirstElement(myList);
 		findTheMaxValue(myList);
+		findStartWith(myList);
+		findTheSumOfElements(myList);
+		sortValues(myList);
+		sortDescending(myList);
+		containsDuplicate(myList);
+		
+	}
 
+	private static void containsDuplicate(List<Integer> myList) {
+		Set<Integer> set = new HashSet<>();
+		boolean result = myList.stream().anyMatch(e -> !set.add(e));
+		System.out.println("\nGiven list " + (result ? "has duplicate" : "no duplicate"));
+	}
+
+	private static void sortDescending(List<Integer> myList) {
+		System.out.print("\nSorted elements in the Descending order is :");	
+		myList.stream().sorted(Collections.reverseOrder()).map(e->e+" ").forEach(System.out::print);	
+		
+	}
+
+	private static void sortValues(List<Integer> myList) {
+		System.out.print("Sorted elements in the Ascending order is :");
+		myList.stream().sorted().map(e->e+" ").forEach(System.out::print);		
+	}
+
+	private static void findTheSumOfElements(List<Integer> myList) {
+		System.out.println("\nSum of the elements in the list is: " + myList.stream().reduce(0, (c, s) -> c + s));
+	}
+
+	private static void findStartWith(List<Integer> myList) {
+		System.out.print("numbers starting with 1 is :");
+		myList.stream().map(e -> e + " ").filter(e -> e.startsWith("1")).forEach(System.out::print);
 	}
 
 	private static void findTheMaxValue(List<Integer> myList) {
