@@ -10,6 +10,8 @@ public class AltCapitalString {
 
 	}
 
+
+
 	private static void altCapitalString(String givenString) {
 		char[] given = givenString.toCharArray();
 		char[] upper = givenString.toUpperCase().toCharArray();
