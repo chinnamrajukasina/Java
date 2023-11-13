@@ -12,6 +12,14 @@ public class StringOperations {
 		concatenateStream(input, list1);
 		firstNonRepeatedChar(input);
 		findFirstRepeatedChar(input);
+		stringContainsVowels(input);
+
+	}
+
+	private static void stringContainsVowels(String input) {
+		boolean result = input.chars().mapToObj(c -> (char) c).anyMatch(c -> "AEIOUaeiou".indexOf(c) >= 0);
+
+		System.out.println("The given string " + (result ? "contains" : "does not contain") + " vowels");
 	}
 
 	private static void concatenateStream(String input, List<String> list1) {
@@ -22,12 +30,15 @@ public class StringOperations {
 	}
 
 	private static void findFirstRepeatedChar(String input) {
-		char result = input.chars().mapToObj(c -> (char) c).collect(Collectors.toMap(c -> c, v -> 1, Integer::sum))
-				.entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey).findFirst()
-				.orElse('\0');
-		System.out.println((result != '\0') ? "The first repeated character is: " + result
-				: "No repeated character found in the string.");
+		Set<Character> seen = new HashSet<>();
 
+		for (char c : input.toCharArray())
+			if (!seen.add(c)) {
+				System.out.println("The first repeated character is: " + c);
+				return;
+			}
+
+		System.out.println("No repeated character found in the string.");
 	}
 
 	private static void firstNonRepeatedChar(String input) {
