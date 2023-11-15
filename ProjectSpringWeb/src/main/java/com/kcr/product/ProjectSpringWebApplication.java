@@ -1,13 +1,13 @@
-package com.kcr.productDemo;
+package com.kcr.product;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProductDemoApplication {
+public class ProjectSpringWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductDemoApplication.class, args);
+		SpringApplication.run(ProjectSpringWebApplication.class, args);
 	}
 
 }
