@@ -13,6 +13,14 @@ public class Utility{
 	//	sc.close();
 		return i; 
 		}	
+
+	public static int readNumber(String input) {
+		System.out.println(input);
+		//Scanner sc= new Scanner(System.in);
+		int i=sc.nextInt();
+	//	sc.close();
+		return i; 
+		}	
 	
 	public static String readString() {
 		System.out.println("Please enter a String...");
