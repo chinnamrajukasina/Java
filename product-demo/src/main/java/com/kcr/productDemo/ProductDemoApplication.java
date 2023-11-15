@@ -1,13 +1,13 @@
-package com.example.demo;
+package com.kcr.productDemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ProductDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ProductDemoApplication.class, args);
 	}
 
 }
