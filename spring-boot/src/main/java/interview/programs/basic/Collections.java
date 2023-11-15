@@ -1,12 +1,14 @@
 package interview.programs.basic;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.*;
+import java.util.Arrays;
+
 
 public class Collections {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		List<String> list0 = Arrays.asList("a", "b", "c", "d", "easdasdasd", "asd");
 		List<String> list = new ArrayList<>();
 		list.add("a");
 		list.add("b");
@@ -16,6 +18,7 @@ public class Collections {
 		list.add("asd");
 
 		printList(list);
+		list.stream().map(e -> e + ", ").forEach(System.out::print);
 
 	}
 
