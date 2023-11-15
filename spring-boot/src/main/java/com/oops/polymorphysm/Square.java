@@ -1,4 +1,4 @@
-package interview.programs.polymorphysm;
+package com.oops.polymorphysm;
 
 public class Square extends Shape {
 

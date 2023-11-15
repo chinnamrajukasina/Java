@@ -1,7 +1,7 @@
-package interview.programs.polymorphysm;
+package com.oops.polymorphysm;
 
 public class Shape {
-	
+
 	public void draw() {
 		System.out.println("Shape is being drawn");
 	}
