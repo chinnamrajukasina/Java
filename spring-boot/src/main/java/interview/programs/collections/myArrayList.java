@@ -12,7 +12,7 @@ public class myArrayList {
 		myArrayList.add(0, "Raju");
 		myArrayList.add("Prasad");
 		System.out.println(myArrayList);
-		
+		//pushed to github
 
 	}
 
