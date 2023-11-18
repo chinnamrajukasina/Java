@@ -18,7 +18,7 @@ public class Collections {
 		list.add("asd");
 
 		printList(list);
-		list.stream().map(e -> e + ", ").forEach(System.out::print);
+		list0.stream().map(e -> e + ", ").forEach(System.out::print);
 
 	}
 
