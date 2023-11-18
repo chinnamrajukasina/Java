@@ -1,5 +1,4 @@
-package interview.programs;
-
+package interview.programs.basic;
 public class StringFormatting {
 
 	public static void main(String[] args) {

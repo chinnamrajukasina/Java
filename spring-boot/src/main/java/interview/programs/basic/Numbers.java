@@ -1,5 +1,4 @@
-package interview.programs;
-
+package interview.programs.basic;
 import utility.Utility;
 
 public class Numbers {

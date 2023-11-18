@@ -1,4 +1,4 @@
-package interview.programs;
+package interview.programs.basic;
 
 import java.util.ArrayList;
 import java.util.List;
