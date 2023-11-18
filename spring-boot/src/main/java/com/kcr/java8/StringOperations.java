@@ -1,7 +1,6 @@
 package com.kcr.java8;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StringOperations {
