@@ -18,7 +18,7 @@ public class ComparableCustomClassEx {
 		set.add(e2);
 		set.add(e3);
 		//To print the set
-		set.stream().forEach(System.out::println);
+		//set.stream().forEach(System.out::println);
 		
 	}
 	
