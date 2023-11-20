@@ -6,65 +6,64 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Book implements Comparable<Book> {
-	String title;
-	String author;
-	int publicationYear;
+    String title;
+    String author;
+    int publicationYear;
 
-	public Book(String title, String author, int publicationYear) {
-		super();
-		this.title = title;
-		this.author = author;
-		this.publicationYear = publicationYear;
-	}
+    public Book(String title, String author, int publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getAuthor() {
-		return author;
-	}
+    public String getAuthor() {
+        return author;
+    }
 
-	public int getPublicationYear() {
-		return publicationYear;
-	}
+    public int getPublicationYear() {
+        return publicationYear;
+    }
 
-	public int compareTo(Book otherBook) {
-		return Integer.compare(this.publicationYear, otherBook.publicationYear);
-	}
+    @Override
+    public String toString() {
+        return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + "]";
+    }
 
-	@Override
-	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", publicationYear=" + publicationYear + "]";
-	}
+    // Implementing Comparable interface using compareTo for default sorting based on publication year
+    @Override
+    public int compareTo(Book otherBook) {
+        return Integer.compare(this.publicationYear, otherBook.publicationYear);
+    }
 
-	public static void main(String[] args) {
-		List<Book> unsortedBooks = new ArrayList<>();
-		unsortedBooks.add(new Book("Java Programming", "John Doe", 2018));
-		unsortedBooks.add(new Book("Python Basics", "Jane Smith", 2020));
-		unsortedBooks.add(new Book("Data Structures in C", "Bob Johnson", 2015));
-		System.out.println("unsorted list is:");
-		for (Book book : unsortedBooks)
-			System.out.println(book);
+    public static void main(String[] args) {
+        List<Book> unsortedBooks = new ArrayList<>();
+        unsortedBooks.add(new Book("Java Programming", "John Doe", 2018));
+        unsortedBooks.add(new Book("Python Basics", "Jane Smith", 2020));
+        unsortedBooks.add(new Book("Data Structures in C", "Bob Johnson", 2015));
 
-		sortAscendYear(unsortedBooks);
-		sortDescendYear(unsortedBooks);
+        System.out.println("Unsorted list is:");
+        for (Book book : unsortedBooks)
+            System.out.println(book);
 
-	}
+        sortAscendYear(unsortedBooks);
+        sortDescendYear(unsortedBooks);
+    }
 
-	private static void sortDescendYear(List<Book> unsortedBooks) {
-		Collections.sort(unsortedBooks, Comparator.comparing(Book::getPublicationYear).reversed());
-		System.out.println("\nSorted List of Books (Descending Order):");
-		for (Book book : unsortedBooks)
-			System.out.println(book);
-	}
+    private static void sortDescendYear(List<Book> unsortedBooks) {
+        Collections.sort(unsortedBooks, Comparator.comparing(Book::getPublicationYear).reversed());
+        System.out.println("\nSorted List of Books (Descending Order):");
+        for (Book book : unsortedBooks)
+            System.out.println(book);
+    }
 
-	private static void sortAscendYear(List<Book> unsortedBooks) {
-
-		Collections.sort(unsortedBooks);
-		System.out.println("sorted list is (using comparable)");
-		for (Book book : unsortedBooks)
-			System.out.println(book);
-	}
-
+    private static void sortAscendYear(List<Book> unsortedBooks) {
+        Collections.sort(unsortedBooks);
+        System.out.println("\nSorted List of Books (Ascending Order using Comparable):");
+        for (Book book : unsortedBooks)
+            System.out.println(book);
+    }
 }
