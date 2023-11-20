@@ -1,4 +1,5 @@
 package com.example.organisation.service;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +34,9 @@ public class OrganisationService {
     public Organisation addEmployeeToOrganisation(String organisationId, Employee employee) {
         Employee savedEmployee = employeeRepository.save(employee);
         Organisation organisation = organisationRepository.findById(organisationId).orElseThrow();
+        if (organisation.getEmployees() == null) {
+        	organisation.setEmployees(new ArrayList<>());
+        }
         organisation.getEmployees().add(savedEmployee);
         return organisationRepository.save(organisation);
     }
