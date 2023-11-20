@@ -34,8 +34,7 @@ class Employee implements Comparable<Employee> {
         this.name = name;
         this.sal = sal;
     }
-
-    @Override
+@Override
     public int compareTo(Employee otherEmployee) {
         // Compare employees based on their salary
         return this.sal.compareTo(otherEmployee.sal);

@@ -8,11 +8,13 @@ import java.util.List;
 class Person implements Comparable<Person> {
     private String name;
     private int age;
+    private String job;
 
     // Constructor
-    public Person(String name, int age) {
+    public Person(String name, int age, String job) {
         this.name = name;
         this.age = age;
+        this.job = job;
     }
 
     // Getter methods
@@ -24,6 +26,10 @@ class Person implements Comparable<Person> {
         return age;
     }
 
+    public String getJob() {
+        return job;
+    }
+
     // Implementing Comparable interface using compareTo for default sorting
     @Override
     public int compareTo(Person otherPerson) {
@@ -33,24 +39,27 @@ class Person implements Comparable<Person> {
     // Custom Comparator for sorting by name
     public static Comparator<Person> nameComparator = Comparator.comparing(Person::getName);
 
-    // Override toString for better object representation
+    // Custom Comparator for sorting by job
+    public static Comparator<Person> jobComparator = Comparator.comparing(Person::getJob);
+
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "Person [name=" + name + ", age=" + age + ", job=" + job + "]";
     }
 
     public static void main(String[] args) {
         List<Person> people = new ArrayList<>();
-        people.add(new Person("Alice", 25));
-        people.add(new Person("Bob", 30));
-        people.add(new Person("Charlie", 22));
+        people.add(new Person("Alice", 25, "Government"));
+        people.add(new Person("Bob", 30, "Software"));
+        people.add(new Person("Charlie", 22, "zoobusiness"));
 
         // Sorting using Comparable (based on age)
         Collections.sort(people);
         System.out.println("Sorted by age (using Comparable): " + people);
+
+        // Sorting using custom Comparator (based on job)
+        Collections.sort(people, Person.jobComparator);
+        System.out.println("Sorted by job (using Comparator): " + people);
 
         // Sorting using a custom Comparator (based on name)
         Collections.sort(people, Person.nameComparator);
