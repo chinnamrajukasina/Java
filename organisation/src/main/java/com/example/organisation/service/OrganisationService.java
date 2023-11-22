@@ -1,4 +1,5 @@
 package com.example.organisation.service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,46 +15,45 @@ import com.example.organisation.repository.OrganisationRepository;
 
 @Service
 public class OrganisationService {
-    @Autowired
-    private OrganisationRepository organisationRepository;
+	@Autowired
+	private OrganisationRepository organisationRepository;
 
-    @Autowired
-    private EmployeeRepository employeeRepository;
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
-    public Organisation saveOrganisation(Organisation organisation) {
-        return organisationRepository.save(organisation);
-    }
+	public Organisation saveOrganisation(Organisation organisation) {
+		return organisationRepository.save(organisation);
+	}
 
-    public List<Organisation> getAllOrganisation() {
-        return organisationRepository.findAll();
-    }
-    
-    public Optional<Organisation> getOrganisation(String id) {
-        return organisationRepository.findById(id);
-    }
+	public List<Organisation> getAllOrganisation() {
+		return organisationRepository.findAll();
+	}
 
-    public Organisation addEmployeeToOrganisation(String organisationId, Employee employee) {
-        Employee savedEmployee = employeeRepository.save(employee);
-        Organisation organisation = organisationRepository.findById(organisationId).orElseThrow();
-        if (organisation.getEmployees() == null) {
-        	organisation.setEmployees(new ArrayList<>());
-        }
-        organisation.getEmployees().add(savedEmployee);
-        return organisationRepository.save(organisation);
-    }
-    // Additional methods...
+	public Optional<Organisation> getOrganisation(String id) {
+		return organisationRepository.findById(id);
+	}
+
+	public Organisation addEmployeeToOrganisation(String organisationId, Employee employee) {
+		Employee savedEmployee = employeeRepository.save(employee);
+		Organisation organisation = organisationRepository.findById(organisationId).orElseThrow();
+		if (organisation.getEmployees() == null) {
+			organisation.setEmployees(new ArrayList<>());
+		}
+		organisation.getEmployees().add(savedEmployee);
+		return organisationRepository.save(organisation);
+	}
+
+	// Additional methods...
 	public List<Employee> getEmployeesByOrganisation(String organisationId) {
-		 Optional<Organisation> organisationOptional = organisationRepository.findById(organisationId);
+		Optional<Organisation> organisationOptional = organisationRepository.findById(organisationId);
 
-	        if (organisationOptional.isPresent()) {
-	            Organisation organisation = organisationOptional.get();
-	            return organisation.getEmployees();
-	        } 
-	        else {
-	            // Handle the case where the organisation with the given ID is not found
-	            throw new OrganisationNotFoundException("Organisation not found with ID: " + organisationId);
-	        }
-	    }
- 
+		if (organisationOptional.isPresent()) {
+			Organisation organisation = organisationOptional.get();
+			return organisation.getEmployees();
+		} else {
+			// Handle the case where the organisation with the given ID is not found
+			throw new OrganisationNotFoundException("Organisation not found with ID: " + organisationId);
+		}
+	}
+
 }
-
