@@ -47,4 +47,15 @@ public class OrganisationController {
     }
 
     // Other endpoints...
+    @GetMapping("/{organisationId}/employees")
+    public ResponseEntity<List<Employee>> getEmployeesByOrganisation(@PathVariable String organisationId) {
+        List<Employee> employees = organisationService.getEmployeesByOrganisation(organisationId);
+
+        if (employees.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Return 204 No Content if the list is empty
+        } else {
+            return ResponseEntity.ok(employees); // Return 200 OK with the list of employees
+        }
+    }
+
 }

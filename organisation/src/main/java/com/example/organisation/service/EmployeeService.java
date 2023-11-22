@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.organisation.dto.Employee;
 import com.example.organisation.repository.EmployeeRepository;
+import com.example.organisation.repository.OrganisationRepository;
 
 @Service
 public class EmployeeService {
@@ -21,4 +22,6 @@ public class EmployeeService {
     }
 
     // Additional methods for update, delete, etc.
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.organisation.dto.Employee;
 import com.example.organisation.dto.Organisation;
+import com.example.organisation.exceptions.OrganisationNotFoundException;
 import com.example.organisation.repository.EmployeeRepository;
 import com.example.organisation.repository.OrganisationRepository;
 
@@ -40,6 +41,19 @@ public class OrganisationService {
         organisation.getEmployees().add(savedEmployee);
         return organisationRepository.save(organisation);
     }
-
     // Additional methods...
+	public List<Employee> getEmployeesByOrganisation(String organisationId) {
+		 Optional<Organisation> organisationOptional = organisationRepository.findById(organisationId);
+
+	        if (organisationOptional.isPresent()) {
+	            Organisation organisation = organisationOptional.get();
+	            return organisation.getEmployees();
+	        } 
+	        else {
+	            // Handle the case where the organisation with the given ID is not found
+	            throw new OrganisationNotFoundException("Organisation not found with ID: " + organisationId);
+	        }
+	    }
+ 
 }
+
